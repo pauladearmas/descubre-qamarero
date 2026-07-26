@@ -1,0 +1,38 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependencies and build output
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Deployment metadata
+.vercel/
+.netlify/
+
+# Temporary archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
