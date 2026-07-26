@@ -15,7 +15,7 @@ Descubre Qamarero is an interactive commercial guide for Qamarero clients. It pr
 Clone the repository and open the project folder:
 
 ```bash
-git clone https://github.com/qamarero/descubre-qamarero.git
+git clone https://github.com/pauladearmas/descubre-qamarero.git
 cd descubre-qamarero
 ```
 
