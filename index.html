@@ -15,7 +15,7 @@
 <body>
 <header class="site-header">
 <div class="shell header-inner">
-<a aria-label="Qamarero" class="brand" href="#inicio"><img alt="Qamarero" src="assets/qamarero-logo.png"/></a>
+<a aria-label="Qamarero" class="brand" href="#inicio"><img alt="Qamarero" src="assets/qamarero-logo-header.png"/></a>
 <div class="header-actions">
 <a class="btn btn-primary" href="https://wa.me/34634141158?text=Hola%2C%20me%20gustar%C3%ADa%20solicitar%20una%20demo%20de%20Qamarero" rel="noopener" target="_blank">Solicitar demo</a>
 </div>
@@ -180,11 +180,33 @@
 <div class="section-head center"><span class="section-label">Planes y precios</span><h2>Elige solo lo que necesita tu negocio</h2><p class="lead">Growth, Delivery y Control incluyen siempre Basic. Los importes no incluyen IVA.</p></div>
 <div class="pricing-controls"><div class="toggle"><button class="active" data-billing="monthly">Mensual</button><button data-billing="annual">Anual</button></div></div>
 <div class="price-grid">
-<article class="price-card" data-plan="basic"><h3>Basic</h3><p class="desc">Operaciones</p><div class="price" data-annual="1428" data-monthly="119">119 €</div><div class="period">al mes</div><ul><li>TPV / POS</li><li>Waiter App</li><li>Carta QR</li><li>Pedir y pagar</li><li>KDS y soporte</li></ul></article>
-<article class="price-card" data-plan="growth"><h3>Growth</h3><p class="desc">Basic + crecer y fidelizar</p><div class="price" data-annual="2028" data-monthly="169">169 €</div><div class="period">al mes</div><ul><li>Todo Basic</li><li>Reservas</li><li>CRM</li><li>Fidelización</li><li>Reseñas y asistente</li></ul></article>
-<article class="price-card" data-plan="delivery"><h3>Delivery</h3><p class="desc">Basic + reparto y recogida</p><div class="price" data-annual="2028" data-monthly="169">169 €</div><div class="period">al mes</div><ul><li>Todo Basic</li><li>Canal propio</li><li>Plataformas</li><li>Riders</li><li>Take away</li></ul></article>
-<article class="price-card" data-plan="control"><h3>Control</h3><p class="desc">Basic + costes y equipo</p><div class="price" data-annual="2028" data-monthly="169">169 €</div><div class="period">al mes</div><ul><li>Todo Basic</li><li>Personal y tareas</li><li>Inventario</li><li>Costes y analítica</li><li>Turnos con IA</li></ul></article>
-<article class="price-card popular" data-plan-scope="full"><span class="pop-label">TODO INCLUIDO</span><h3>Total</h3><p class="desc">Basic + Growth + Delivery + Control</p><div class="price" data-annual="2988" data-monthly="249">249 €</div><div class="period">al mes</div><ul><li>Todos los módulos</li><li>Una única plataforma</li><li>Mejor relación valor</li><li>Menos herramientas</li><li>Soporte 365 días</li></ul></article>
+<article class="price-card" data-plan="basic"><h3>Basic</h3><p class="desc">Operaciones</p><div class="price" data-annual="1190" data-monthly="119">119 €</div><div class="period">al mes</div><ul><li>TPV / POS</li><li>Waiter App</li><li>Carta QR</li><li>Pedir y pagar</li><li>KDS y soporte</li></ul></article>
+<article class="price-card" data-plan="growth"><h3>Growth</h3><p class="desc">Basic + crecer y fidelizar</p><div class="price" data-annual="1690" data-monthly="169">169 €</div><div class="period">al mes</div><ul><li>Todo Basic</li><li>Reservas</li><li>CRM</li><li>Fidelización</li><li>Reseñas y asistente</li></ul></article>
+<article class="price-card" data-plan="delivery"><h3>Delivery</h3><p class="desc">Basic + reparto y recogida</p><div class="price" data-annual="1690" data-monthly="169">169 €</div><div class="period">al mes</div><ul><li>Todo Basic</li><li>Canal propio</li><li>Plataformas</li><li>Riders</li><li>Take away</li></ul></article>
+<article class="price-card" data-plan="control"><h3>Control</h3><p class="desc">Basic + costes y equipo</p><div class="price" data-annual="1690" data-monthly="169">169 €</div><div class="period">al mes</div><ul><li>Todo Basic</li><li>Personal y tareas</li><li>Inventario</li><li>Costes y analítica</li><li>Turnos con IA</li></ul></article>
+<article class="price-card popular" data-plan-scope="full"><span class="pop-label">TODO INCLUIDO</span><h3>Total</h3><p class="desc">Basic + Growth + Delivery + Control</p><div class="price" data-annual="2490" data-monthly="249">249 €</div><div class="period">al mes</div><ul><li>Todos los módulos</li><li>Una única plataforma</li><li>Mejor relación valor</li><li>Menos herramientas</li><li>Soporte 365 días</li></ul></article>
+</div>
+<div class="module-selector" data-module-selector data-plan-scope="full">
+<div class="selector-copy">
+<span class="section-label">Configura tu plan</span>
+<h3>Elige los módulos que te interesan</h3>
+<p>Basic siempre va incluido. Marca Growth, Delivery o Control y verás el precio final al momento.</p>
+<div class="selector-options">
+<label class="selector-option locked"><input checked data-module-choice="basic" type="checkbox"/> <span><strong>Basic</strong><small>Base obligatoria</small></span></label>
+<label class="selector-option"><input data-module-choice="control" type="checkbox"/> <span><strong>Control</strong><small>Costes, equipo y stock</small></span></label>
+<label class="selector-option"><input data-module-choice="growth" type="checkbox"/> <span><strong>Growth</strong><small>Reservas, CRM y fidelización</small></span></label>
+<label class="selector-option"><input data-module-choice="delivery" type="checkbox"/> <span><strong>Delivery</strong><small>Reparto, plataformas y take away</small></span></label>
+</div>
+</div>
+<div class="selector-summary">
+<span class="pop-label">PLAN SELECCIONADO</span>
+<h3 data-selector-title>Basic</h3>
+<div class="selector-price" data-selector-price>119 €</div>
+<div class="period" data-selector-period>al mes · sin IVA</div>
+<p data-selector-list>Incluye Basic</p>
+<div class="selector-message" data-selector-message>Por 50 € más al mes puedes añadir Growth, Delivery o Control y llevarte un plan más completo.</div>
+<a class="btn btn-primary" data-selector-cta href="https://wa.me/34634141158?text=Hola%2C%20me%20interesa%20Basic%20por%20119%20%E2%82%AC%2Fmes%20%2B%20IVA" target="_blank">Consultar este plan</a>
+</div>
 </div>
 <div class="combo-banner" data-plan-scope="full"><div><strong>Basic + 2 módulos: 199 €/mes</strong><div style="color:#c9c9cd;margin-top:5px">Elige dos entre Growth, Delivery o Control.</div></div><a class="btn btn-primary" href="https://wa.me/34634141158?text=Hola%2C%20me%20interesa%20la%20combinaci%C3%B3n%20Basic%20%2B%202%20m%C3%B3dulos%20por%20199%E2%82%AC%2Fmes" target="_blank">Consultar combinación</a></div>
 <div class="impl-grid">
@@ -281,4 +303,3 @@
 <script src="assets/app.js" defer></script>
 </body>
 </html>
-

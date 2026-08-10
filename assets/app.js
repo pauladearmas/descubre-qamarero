@@ -1,40 +1,9 @@
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-const initialPath = location.pathname + location.search;
-let keepInitialScroll = true;
-let initialScrollLock = null;
-function resetInitialScroll() {
-  if (location.hash) history.replaceState(null, '', initialPath);
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+if (!location.hash) {
+  window.addEventListener('DOMContentLoaded', () => {
+    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
+  }, { once:true });
 }
-function stopInitialScrollLock() {
-  keepInitialScroll = false;
-  if (initialScrollLock) clearInterval(initialScrollLock);
-}
-['wheel','touchstart','keydown','mousedown','pointerdown'].forEach(eventName => {
-  window.addEventListener(eventName, stopInitialScrollLock, { once:true, passive:true });
-});
-function startInitialScrollLock() {
-  resetInitialScroll();
-  initialScrollLock = setInterval(() => {
-    if (!keepInitialScroll) return;
-    resetInitialScroll();
-  }, 80);
-  setTimeout(() => {
-    if (initialScrollLock) clearInterval(initialScrollLock);
-    if (keepInitialScroll) resetInitialScroll();
-  }, 7000);
-}
-resetInitialScroll();
-window.addEventListener('DOMContentLoaded', startInitialScrollLock);
-window.addEventListener('pageshow', startInitialScrollLock);
-window.addEventListener('load', () => {
-  resetInitialScroll();
-  requestAnimationFrame(resetInitialScroll);
-  setTimeout(resetInitialScroll, 1200);
-  setTimeout(resetInitialScroll, 3500);
-});
 
 const planFilters = {
   basic: ['basic'],
@@ -154,6 +123,63 @@ document.querySelectorAll('[data-billing]').forEach(btn => btn.addEventListener(
   const annual = btn.dataset.billing === 'annual';
   document.querySelectorAll('.price').forEach(p => {
     p.textContent = (annual ? p.dataset.annual : p.dataset.monthly) + ' €';
-    p.nextElementSibling.textContent = annual ? 'al año · equivalente a 12 mensualidades' : 'al mes';
+    p.nextElementSibling.textContent = annual ? 'al año · ahorras 2 meses' : 'al mes';
   });
 }));
+
+const moduleSelector = document.querySelector('[data-module-selector]');
+if (moduleSelector) {
+  const checkboxes = [...moduleSelector.querySelectorAll('[data-module-choice]')];
+  const summaryTitle = moduleSelector.querySelector('[data-selector-title]');
+  const price = moduleSelector.querySelector('[data-selector-price]');
+  const period = moduleSelector.querySelector('[data-selector-period]');
+  const message = moduleSelector.querySelector('[data-selector-message]');
+  const selectedList = moduleSelector.querySelector('[data-selector-list]');
+  const cta = moduleSelector.querySelector('[data-selector-cta]');
+  const moduleNames = {
+    basic: 'Basic',
+    control: 'Control',
+    growth: 'Growth',
+    delivery: 'Delivery'
+  };
+  const getSelection = () => {
+    const extras = checkboxes
+      .filter(input => input.dataset.moduleChoice !== 'basic' && input.checked)
+      .map(input => input.dataset.moduleChoice);
+    return ['basic', ...extras];
+  };
+  const getMonthlyPrice = count => {
+    if (count <= 1) return 119;
+    if (count === 2) return 169;
+    if (count === 3) return 199;
+    return 249;
+  };
+  const getMessage = count => {
+    if (count <= 1) return 'Por 50 € más al mes puedes añadir Growth, Delivery o Control y llevarte un plan más completo.';
+    if (count === 2) return 'Por 30 € más al mes puedes llevarte otro módulo y conectar aún más áreas del restaurante.';
+    if (count === 3) return 'Ya tienes Basic + 2 módulos. Por 50 € más al mes puedes llevarte el plan Total.';
+    return 'Plan Total seleccionado: todos los módulos conectados en una sola plataforma.';
+  };
+  const updateSelector = () => {
+    const selected = getSelection();
+    const selectedExtras = selected.filter(name => name !== 'basic');
+    const monthly = getMonthlyPrice(selected.length);
+    const annualActive = document.querySelector('[data-billing].active')?.dataset.billing === 'annual';
+    summaryTitle.textContent = selected.length === 4 ? 'Total' : selected.map(name => moduleNames[name]).join(' + ');
+    price.textContent = `${annualActive ? monthly * 10 : monthly} €`;
+    period.textContent = annualActive ? 'al año · ahorras 2 meses' : 'al mes · sin IVA';
+    message.textContent = getMessage(selected.length);
+    selectedList.textContent = selectedExtras.length
+      ? `Incluye Basic + ${selectedExtras.map(name => moduleNames[name]).join(' + ')}`
+      : 'Incluye Basic';
+    cta.href = 'https://wa.me/34634141158?text=' + encodeURIComponent(`Hola, me interesa ${summaryTitle.textContent} por ${monthly} €/mes + IVA`);
+  };
+  checkboxes.forEach(input => {
+    input.addEventListener('change', () => {
+      if (input.dataset.moduleChoice === 'basic') input.checked = true;
+      updateSelector();
+    });
+  });
+  document.querySelectorAll('[data-billing]').forEach(btn => btn.addEventListener('click', updateSelector));
+  updateSelector();
+}
