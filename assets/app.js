@@ -1,9 +1,4 @@
 if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-if (!location.hash) {
-  window.addEventListener('DOMContentLoaded', () => {
-    requestAnimationFrame(() => window.scrollTo({ top: 0, left: 0, behavior: 'auto' }));
-  }, { once:true });
-}
 
 const planFilters = {
   basic: ['basic'],
