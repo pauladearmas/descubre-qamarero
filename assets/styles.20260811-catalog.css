@@ -224,9 +224,9 @@ footer{padding:28px 0;border-top:1px solid var(--line);color:var(--muted);font-s
 .calculator-frame{height:1120px}
 .frame-note{padding:11px 18px;background:#fafafa;color:var(--muted);font-size:12px;text-align:center;border-top:1px solid var(--line)}
 .hardware-packs-head{margin-top:58px}
-.pack-grid-visual{align-items:stretch}
+.pack-grid-visual{align-items:stretch;grid-template-columns:repeat(5,1fr)}
 .pack-visual{padding:0;overflow:hidden;display:flex;flex-direction:column}
-.pack-visual img{width:100%;height:185px;object-fit:contain;background:#f3f3f4;padding:12px}
+.pack-visual img{width:100%;height:175px;object-fit:contain;background:#f3f3f4;padding:12px}
 .pack-visual>div{padding:20px}
 .pack-visual h3{margin:0 0 8px}
 .catalog-strip{margin-top:20px;background:#222;color:#fff;border-radius:21px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px;font-weight:750}
