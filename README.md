@@ -66,8 +66,8 @@ https://descubre-qamarero.vercel.app
 .
 ├── index.html
 ├── assets/
-│   ├── app.js
-│   ├── styles.css
+│   ├── app.20260811-final.js
+│   ├── styles.20260811-final.css
 │   └── image assets
 ├── videos/
 │   └── product videos
