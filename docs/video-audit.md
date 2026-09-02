@@ -5,8 +5,16 @@
 - Personal y fichaje: `videos/personal-fichaje.mp4`.
 - Gestión de tareas: `videos/gestion-tareas.mp4`.
 - Mise en place: `videos/mise-en-place.mp4`.
-- Control de costes: `videos/escandallos-costes.mp4`.
-- Inventario/stock: `videos/inventario-real.mp4` y `videos/stock-avanzado.mp4`.
+- Control de costes: Loom verificado de escandallos/costes.
+- Inventario/stock: `videos/inventario-real.mp4` y Loom verificado de stock avanzado.
+- Turnos con IA: Loom verificado de planificación de turnos.
+
+## Basic
+- Waiter App y comanderos: `videos/comandero.mp4`.
+
+## Growth
+- CRM de clientes: `videos/crm-clientes.mp4`.
+- Reseñas y reputación online: `videos/resenas-reputacion.mp4`.
 
 ## Delivery
 - Plataformas externas: `videos/plataformas-externas.mp4`.

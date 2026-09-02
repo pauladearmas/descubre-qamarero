@@ -69,6 +69,7 @@ if (deferredHardwareFrame) {
 const modal = document.getElementById('videoModal');
 const videoTitle = document.getElementById('videoTitle');
 const localVideo = document.getElementById('localVideo');
+const embedVideo = document.getElementById('embedVideo');
 document.querySelectorAll('.video-button').forEach(btn => btn.addEventListener('click', () => {
   const url = btn.dataset.url;
   videoTitle.textContent = btn.dataset.title || 'Vídeo';
@@ -77,10 +78,15 @@ document.querySelectorAll('.video-button').forEach(btn => btn.addEventListener('
   localVideo.removeAttribute('src');
   localVideo.load();
   localVideo.style.display = 'none';
+  embedVideo.removeAttribute('src');
+  embedVideo.style.display = 'none';
   if (isLocalVideo) {
     localVideo.src = url;
     localVideo.style.display = 'block';
     localVideo.load();
+  } else {
+    embedVideo.src = url;
+    embedVideo.style.display = 'block';
   }
   modal.classList.add('open');
   modal.setAttribute('aria-hidden','false');
@@ -92,6 +98,8 @@ function closeVideo() {
   localVideo.removeAttribute('src');
   localVideo.load();
   localVideo.style.display = 'none';
+  embedVideo.removeAttribute('src');
+  embedVideo.style.display = 'none';
 }
 document.getElementById('closeVideo').addEventListener('click', closeVideo);
 modal.addEventListener('click', e => { if(e.target === modal) closeVideo(); });
