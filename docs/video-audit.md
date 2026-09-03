@@ -6,11 +6,14 @@
 - Gestión de tareas: `videos/gestion-tareas.mp4`.
 - Mise en place: `videos/mise-en-place.mp4`.
 - Control de costes: Loom verificado de escandallos/costes.
-- Inventario/stock: `videos/inventario-real.mp4` y Loom verificado de stock avanzado.
-- Turnos con IA: Loom verificado de planificación de turnos.
+- Inventario y control de stock: `videos/inventario-stock.mp4`.
+- Registro de merma: `videos/registro-merma.mp4`.
+- Turnos con IA: `videos/turnos-ia.mp4`.
 
 ## Basic
 - Waiter App y comanderos: `videos/comandero.mp4`.
+- Pedir y pagar: `videos/pedir-pagar.mp4`.
+- Autoservicio: `videos/autoservicio.mp4`.
 
 ## Growth
 - CRM de clientes: `videos/crm-clientes.mp4`.
