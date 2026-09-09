@@ -143,7 +143,8 @@ if (moduleSelector) {
     basic: 'Basic',
     control: 'Control',
     growth: 'Growth',
-    delivery: 'Delivery'
+    delivery: 'Delivery',
+    phone: 'IA telefónica'
   };
   const getSelection = () => {
     const extras = checkboxes
@@ -166,12 +167,14 @@ if (moduleSelector) {
   const updateSelector = () => {
     const selected = getSelection();
     const selectedExtras = selected.filter(name => name !== 'basic');
-    const monthly = getMonthlyPrice(selected.length);
+    const selectedCore = selected.filter(name => name !== 'phone');
+    const hasPhone = selected.includes('phone');
+    const monthly = getMonthlyPrice(selectedCore.length) + (hasPhone ? 100 : 0);
     const annualActive = document.querySelector('[data-billing].active')?.dataset.billing === 'annual';
-    summaryTitle.textContent = selected.length === 4 ? 'Total' : selected.map(name => moduleNames[name]).join(' + ');
+    summaryTitle.textContent = selectedCore.length === 4 && !hasPhone ? 'Total' : selected.map(name => moduleNames[name]).join(' + ');
     price.textContent = `${annualActive ? monthly * 10 : monthly} €`;
     period.textContent = annualActive ? 'al año · ahorras 2 meses' : 'al mes · sin IVA';
-    message.textContent = getMessage(selected.length);
+    message.textContent = hasPhone ? 'Incluye IA telefónica como servicio aparte por 100 €/mes + IVA para atender llamadas y reservas.' : getMessage(selectedCore.length);
     selectedList.textContent = selectedExtras.length
       ? `Incluye Basic + ${selectedExtras.map(name => moduleNames[name]).join(' + ')}`
       : 'Incluye Basic';
